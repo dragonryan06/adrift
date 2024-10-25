@@ -20,3 +20,9 @@ shape = SubResource("RectangleShape2D_utapu")
 
 [node name="Camera2D" type="Camera2D" parent="Pivot"]
 ignore_rotation = false
+
+[node name="GridDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
