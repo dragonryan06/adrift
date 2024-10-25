@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7gtfnwxcascb"]
+
+[ext_resource type="Texture2D" uid="uid://kv0otlqskd0s" path="res://entities/asteroid_chunk.png" id="1_kv81k"]
+[ext_resource type="Script" path="res://systems/grid.gd" id="2_dv5ji"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ql4r"]
+texture = ExtResource("1_kv81k")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tme3q"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_4ql4r")
+
+[node name="TestAsteroid" type="TileMap"]
+tile_set = SubResource("TileSet_tme3q")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65537, 0, 0, 65536, 0, 0, 131071, 0, 0, 65535, 0, 0, -65536, 0, 0, 65534, 0, 0, -1, 0, 0, 65533, 0, 0, -3, 0, 0, -2, 0, 0, -65537, 0, 0, -131072, 0, 0, -65538, 0, 0, -65535, 0, 0, -65534, 0, 0, -131071, 0, 0, 1, 0, 0, 2, 0, 0, -131073, 0, 0, -196608, 0, 0)
+script = ExtResource("2_dv5ji")

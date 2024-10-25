@@ -13,7 +13,10 @@ script = ExtResource("1_sknty")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cc8pu")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_utapu")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Pivot"]
+ignore_rotation = false

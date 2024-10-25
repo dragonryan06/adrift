@@ -1,11 +1,15 @@
 extends CharacterBody2D
 
+signal grid_changed(grid:Grid)
+
 @export var HEAD_TURN_SPEED = 0.5
 @export var MOVE_SPEED = 250
 
 func _physics_process(delta:float) -> void:
 	var angle = global_position.angle_to_point(get_global_mouse_position())+PI/2.0
 	rotation = lerp_angle(rotation,angle,HEAD_TURN_SPEED)
+	# This is so the camera can rotate independently of its parent
+	$Pivot.rotation = -rotation
 	
 	var horizontal = Input.get_axis("move_left","move_right")
 	var vertical = Input.get_axis("move_up","move_down")
