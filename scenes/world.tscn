@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://rcdv6lft64hb"]
+
+[ext_resource type="Texture2D" uid="uid://cu115ejfasq2k" path="res://icon.svg" id="1_4vtlf"]
+[ext_resource type="PackedScene" uid="uid://dmff683kd5rcl" path="res://entities/player.tscn" id="2_a0nbi"]
+[ext_resource type="PackedScene" uid="uid://c7gtfnwxcascb" path="res://entities/test_asteroid.tscn" id="3_847t8"]
+
+[node name="World" type="Node"]
+
+[node name="HiI\'mAReferenceSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_4vtlf")
+
+[node name="TestAsteroid" parent="." instance=ExtResource("3_847t8")]
+position = Vector2(-593, -416)
+rotation = 0.470994
+scale = Vector2(1, 1)
+
+[node name="TestAsteroid2" parent="." instance=ExtResource("3_847t8")]
+position = Vector2(248, -440)
+rotation = -0.22272
+
+[node name="Player" parent="." instance=ExtResource("2_a0nbi")]
