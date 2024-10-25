@@ -18,11 +18,11 @@ func _physics_process(delta:float) -> void:
 	
 	if movement.x:
 		velocity.x = movement.x*MOVE_SPEED
-	else:
+	elif is_instance_valid(parent_grid):
 		velocity.x = move_toward(velocity.x, 0, MOVE_SPEED)
 	if movement.y:
 		velocity.y = movement.y*MOVE_SPEED
-	else:
+	elif is_instance_valid(parent_grid):
 		velocity.y = move_toward(velocity.y, 0, MOVE_SPEED)
 	move_and_slide()
 	
