@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rcdv6lft64hb"]
+
+[ext_resource type="Texture2D" uid="uid://cu115ejfasq2k" path="res://icon.svg" id="1_4vtlf"]
+[ext_resource type="PackedScene" uid="uid://dmff683kd5rcl" path="res://entities/player.tscn" id="2_a0nbi"]
+
+[node name="World" type="Node"]
+
+[node name="HiI\'mAReferenceSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_4vtlf")
+
+[node name="Player" parent="." instance=ExtResource("2_a0nbi")]

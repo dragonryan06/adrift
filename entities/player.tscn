@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmff683kd5rcl"]
+
+[ext_resource type="Script" path="res://systems/player.gd" id="1_sknty"]
+[ext_resource type="Texture2D" uid="uid://denyoc556x5v2" path="res://entities/blockhead.png" id="2_cc8pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utapu"]
+size = Vector2(96, 64)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_sknty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cc8pu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_utapu")
