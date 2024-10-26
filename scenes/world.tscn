@@ -27,6 +27,7 @@ layer = -1
 scroll_scale = Vector2(0.05, 0.05)
 repeat_size = Vector2(2048, 1024)
 repeat_times = 3
+follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Stars1"]
 position = Vector2(1024, 367)
@@ -36,6 +37,7 @@ texture = ExtResource("1_t556t")
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(2048, 1024)
 repeat_times = 3
+follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Stars2"]
 position = Vector2(1024, 367)
@@ -45,6 +47,7 @@ texture = ExtResource("2_0gb6o")
 scroll_scale = Vector2(0.15, 0.15)
 repeat_size = Vector2(2048, 1024)
 repeat_times = 3
+follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Stars3"]
 position = Vector2(1024, 367)
