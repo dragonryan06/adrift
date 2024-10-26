@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://rjd7r0os31v4" path="res://scenes/starfield_2.png" id="2_0gb6o"]
 [ext_resource type="PackedScene" uid="uid://dmff683kd5rcl" path="res://entities/player.tscn" id="2_a0nbi"]
 [ext_resource type="Texture2D" uid="uid://bqyroff2qej1q" path="res://scenes/starfield_3.png" id="3_0ps5e"]
-[ext_resource type="PackedScene" uid="uid://c7gtfnwxcascb" path="res://entities/test_asteroid.tscn" id="3_847t8"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_ktspw"]
+[ext_resource type="PackedScene" uid="uid://c7gtfnwxcascb" path="res://entities/asteroid.tscn" id="3_847t8"]
 
 [sub_resource type="Environment" id="Environment_kbo07"]
 background_mode = 3
@@ -15,6 +16,9 @@ adjustment_enabled = true
 adjustment_saturation = 0.75
 
 [node name="World" type="Node"]
+script = ExtResource("1_ktspw")
+
+[node name="Asteroids" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kbo07")
@@ -56,12 +60,13 @@ texture = ExtResource("3_0ps5e")
 texture = ExtResource("1_4vtlf")
 
 [node name="TestAsteroid" parent="." instance=ExtResource("3_847t8")]
-position = Vector2(-653, 209)
-rotation = 0.677133
+position = Vector2(-593, -416)
+rotation = 0.470994
+script = null
 
 [node name="TestAsteroid2" parent="." instance=ExtResource("3_847t8")]
-position = Vector2(518, -173)
-rotation = -0.930851
+position = Vector2(671, -319)
+rotation = -0.22272
 
 [node name="Player" parent="." instance=ExtResource("2_a0nbi")]
 
