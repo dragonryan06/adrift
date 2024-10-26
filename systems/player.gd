@@ -12,9 +12,6 @@ func _physics_process(delta:float) -> void:
 	$Pivot.rotation = -rotation
 	
 	var movement = Vector2(Input.get_axis("move_left","move_right"), Input.get_axis("move_up","move_down"))
-	if is_instance_valid(parent_grid):
-		$Pivot.rotation += parent_grid.rotation
-		movement = movement.rotated(parent_grid.rotation)
 	
 	if movement.x:
 		velocity.x = movement.x*MOVE_SPEED

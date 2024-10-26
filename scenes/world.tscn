@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://rcdv6lft64hb"]
+[gd_scene load_steps=9 format=3 uid="uid://rcdv6lft64hb"]
 
 [ext_resource type="Texture2D" uid="uid://cu115ejfasq2k" path="res://icon.svg" id="1_4vtlf"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_mp0da"]
 [ext_resource type="Texture2D" uid="uid://dktgcfvfk8epo" path="res://scenes/starfield_1.png" id="1_t556t"]
 [ext_resource type="Texture2D" uid="uid://rjd7r0os31v4" path="res://scenes/starfield_2.png" id="2_0gb6o"]
 [ext_resource type="PackedScene" uid="uid://dmff683kd5rcl" path="res://entities/player.tscn" id="2_a0nbi"]
@@ -15,6 +16,7 @@ adjustment_enabled = true
 adjustment_saturation = 0.75
 
 [node name="World" type="Node"]
+script = ExtResource("1_mp0da")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kbo07")
@@ -54,6 +56,8 @@ texture = ExtResource("3_0ps5e")
 
 [node name="HiI\'mAReferenceSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_4vtlf")
+
+[node name="Asteroids" type="Node" parent="."]
 
 [node name="TestAsteroid" parent="." instance=ExtResource("3_847t8")]
 position = Vector2(-653, 209)
