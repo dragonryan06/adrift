@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rcdv6lft64hb"]
+[gd_scene load_steps=8 format=3 uid="uid://rcdv6lft64hb"]
 
 [ext_resource type="Texture2D" uid="uid://cu115ejfasq2k" path="res://icon.svg" id="1_4vtlf"]
 [ext_resource type="Texture2D" uid="uid://dktgcfvfk8epo" path="res://scenes/starfield_1.png" id="1_t556t"]
@@ -7,32 +7,46 @@
 [ext_resource type="Texture2D" uid="uid://bqyroff2qej1q" path="res://scenes/starfield_3.png" id="3_0ps5e"]
 [ext_resource type="PackedScene" uid="uid://c7gtfnwxcascb" path="res://entities/test_asteroid.tscn" id="3_847t8"]
 
+[sub_resource type="Environment" id="Environment_kbo07"]
+background_mode = 3
+ambient_light_source = 1
+tonemap_mode = 2
+tonemap_white = 5.0
+adjustment_enabled = true
+adjustment_saturation = 0.75
+
 [node name="World" type="Node"]
 
-[node name="Stars1" type="Parallax2D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kbo07")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Stars1" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.05, 0.05)
+repeat_size = Vector2(2048, 1024)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Stars1"]
+position = Vector2(1024, 367)
+texture = ExtResource("1_t556t")
+
+[node name="Stars2" type="Parallax2D" parent="CanvasLayer"]
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(2048, 1024)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Stars1"]
-position = Vector2(1024, 367)
-texture = ExtResource("1_t556t")
-
-[node name="Stars2" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.2, 0.2)
-repeat_size = Vector2(2048, 1024)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Stars2"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Stars2"]
 position = Vector2(1024, 367)
 texture = ExtResource("2_0gb6o")
 
-[node name="Stars3" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.3, 0.3)
+[node name="Stars3" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.15, 0.15)
 repeat_size = Vector2(2048, 1024)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Stars3"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Stars3"]
 position = Vector2(1024, 367)
 texture = ExtResource("3_0ps5e")
 
@@ -48,3 +62,6 @@ position = Vector2(518, -173)
 rotation = -0.930851
 
 [node name="Player" parent="." instance=ExtResource("2_a0nbi")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
