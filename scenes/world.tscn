@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rjd7r0os31v4" path="res://scenes/starfield_2.png" id="2_0gb6o"]
 [ext_resource type="PackedScene" uid="uid://dmff683kd5rcl" path="res://entities/player.tscn" id="2_a0nbi"]
 [ext_resource type="Texture2D" uid="uid://bqyroff2qej1q" path="res://scenes/starfield_3.png" id="3_0ps5e"]
-[ext_resource type="PackedScene" uid="uid://c7gtfnwxcascb" path="res://entities/test_asteroid.tscn" id="3_847t8"]
+[ext_resource type="PackedScene" uid="uid://bm6h48biwevpp" path="res://entities/asteroid.tscn" id="3_847t8"]
 
 [sub_resource type="Environment" id="Environment_kbo07"]
 background_mode = 3
