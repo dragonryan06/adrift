@@ -8,7 +8,7 @@ var parent_grid = null
 func _physics_process(delta:float) -> void:
 	var angle = global_position.angle_to_point(get_global_mouse_position())+PI/2.0
 	rotation = lerp_angle(rotation,angle,HEAD_TURN_SPEED)
-	# This is so the camera can rotated independently of its parent
+	# This is so the camera can rotate independently of its parent
 	$Pivot.rotation = -rotation
 	
 	var movement = Vector2(Input.get_axis("move_left","move_right"), Input.get_axis("move_up","move_down"))
