@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmff683kd5rcl"]
+[gd_scene load_steps=12 format=3 uid="uid://dmff683kd5rcl"]
 
 [ext_resource type="Script" path="res://systems/player.gd" id="1_sknty"]
-[ext_resource type="Texture2D" uid="uid://denyoc556x5v2" path="res://entities/blockhead.png" id="2_cc8pu"]
+[ext_resource type="Texture2D" uid="uid://m8kcitn3npig" path="res://entities/player.png" id="2_avont"]
 [ext_resource type="Texture2D" uid="uid://c0bjmoxl147cm" path="res://entities/headlight_beam.png" id="3_ipoc8"]
 [ext_resource type="Shader" path="res://entities/headlight.gdshader" id="4_s2ogi"]
+[ext_resource type="Texture2D" uid="uid://bjrbsolik5qh4" path="res://entities/dustparticle.png" id="5_owdch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utapu"]
 size = Vector2(96, 64)
@@ -11,12 +12,33 @@ size = Vector2(96, 64)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_btfhv"]
 shader = ExtResource("4_s2ogi")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ernf4"]
+load_path = "res://.godot/imported/headlight_beam2.png-a8bb30dee99ab9132fd280bc1eb3d73e.ctex"
+
+[sub_resource type="Curve" id="Curve_jyduv"]
+_data = [Vector2(0.12, 0), 0.0, 0.0, 0, 0, Vector2(0.266667, 1), 0.0, 0.0, 0, 0, Vector2(0.486667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ofnpp"]
+curve = SubResource("Curve_jyduv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_epeyo"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2048, 2048, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_ofnpp")
+turbulence_noise_strength = 3.74
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_sknty")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cc8pu")
+scale = Vector2(2, 2)
+texture = ExtResource("2_avont")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_utapu")
@@ -33,10 +55,33 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -223)
+position = Vector2(-23, -382)
+rotation = -0.139626
+scale = Vector2(1, 1.37208)
 range_layer_max = 1
 texture = ExtResource("3_ipoc8")
+texture_scale = 0.75
 
-[node name="Sprite2D" type="Sprite2D" parent="PointLight2D"]
+[node name="Haze" type="Sprite2D" parent="PointLight2D"]
 material = SubResource("ShaderMaterial_btfhv")
+texture = SubResource("CompressedTexture2D_ernf4")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(29, -370)
+rotation = 0.139626
+scale = Vector2(1, 1.37208)
+range_layer_max = 1
 texture = ExtResource("3_ipoc8")
+texture_scale = 0.75
+
+[node name="Haze" type="Sprite2D" parent="PointLight2D2"]
+material = SubResource("ShaderMaterial_btfhv")
+texture = SubResource("CompressedTexture2D_ernf4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 2048
+process_material = SubResource("ParticleProcessMaterial_epeyo")
+texture = ExtResource("5_owdch")
+lifetime = 16.0
+preprocess = 100.0
+visibility_rect = Rect2(-512, -512, 1024, 1024)
