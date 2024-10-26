@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmff683kd5rcl"]
+[gd_scene load_steps=7 format=3 uid="uid://dmff683kd5rcl"]
 
 [ext_resource type="Script" path="res://systems/player.gd" id="1_sknty"]
 [ext_resource type="Texture2D" uid="uid://denyoc556x5v2" path="res://entities/blockhead.png" id="2_cc8pu"]
 [ext_resource type="Texture2D" uid="uid://c0bjmoxl147cm" path="res://entities/headlight_beam.png" id="3_ipoc8"]
+[ext_resource type="Shader" path="res://entities/headlight.gdshader" id="4_s2ogi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utapu"]
 size = Vector2(96, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btfhv"]
+shader = ExtResource("4_s2ogi")
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -31,4 +35,8 @@ collide_with_areas = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -223)
 range_layer_max = 1
+texture = ExtResource("3_ipoc8")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointLight2D"]
+material = SubResource("ShaderMaterial_btfhv")
 texture = ExtResource("3_ipoc8")
