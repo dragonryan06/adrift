@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://c7gtfnwxcascb"]
+[gd_scene load_steps=4 format=3 uid="uid://c7gtfnwxcascb"]
 
 [ext_resource type="TileSet" uid="uid://crry4qt6td2jy" path="res://entities/asteroid_tileset.tres" id="1_ccmfi"]
 [ext_resource type="Script" path="res://entities/asteroid.gd" id="2_t1ssl"]
@@ -11,6 +11,5 @@ script = ExtResource("2_t1ssl")
 
 [node name="WallLayer" type="TileMapLayer" parent="."]
 position = Vector2(1000, 1000)
-tile_map_data = PackedByteArray("AAD8/wAAAAABAAAAAAD9/wAAAAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAD//wAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAABAAEAAAABAAAAAAADAAAAAAABAAAAAAADAP//AAABAAAAAAACAP//AAABAAAAAAABAP//AAABAAAAAAAAAP//AAABAAAAAAD/////AAABAAAAAAD+////AAABAAAAAAD9////AAABAAAAAAD8////AAABAAAAAAD+//7/AAABAAAAAAD///7/AAABAAAAAAAAAP7/AAABAAAAAAABAP7/AAABAAAAAAACAP7/AAABAAAAAAAAAP3/AAABAAAAAAA=")
 tile_set = ExtResource("1_ccmfi")
 script = ExtResource("3_2mcej")

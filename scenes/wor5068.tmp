@@ -8,8 +8,6 @@
 [node name="World" type="Node"]
 script = ExtResource("1_ktspw")
 
-[node name="Asteroids" type="Node" parent="."]
-
 [node name="HiI\'mAReferenceSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_4vtlf")
 
