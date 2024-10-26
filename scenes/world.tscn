@@ -12,10 +12,9 @@ texture = ExtResource("1_4vtlf")
 [node name="TestAsteroid" parent="." instance=ExtResource("3_847t8")]
 position = Vector2(-593, -416)
 rotation = 0.470994
-scale = Vector2(1, 1)
 
 [node name="TestAsteroid2" parent="." instance=ExtResource("3_847t8")]
-position = Vector2(248, -440)
+position = Vector2(671, -319)
 rotation = -0.22272
 
 [node name="Player" parent="." instance=ExtResource("2_a0nbi")]
