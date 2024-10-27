@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqct1hfctfhd4"
-path="res://.godot/imported/adrift_title.png-0dfff9946ee2da3aa47bff50cfe27db5.ctex"
+uid="uid://dwir0agf11kgw"
+path="res://.godot/imported/play.png-d6f2e456297c3befb3ad9b9927ae0c8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/adrift_title.png"
-dest_files=["res://.godot/imported/adrift_title.png-0dfff9946ee2da3aa47bff50cfe27db5.ctex"]
+source_file="res://entities/play.png"
+dest_files=["res://.godot/imported/play.png-d6f2e456297c3befb3ad9b9927ae0c8f.ctex"]
 
 [params]
 
