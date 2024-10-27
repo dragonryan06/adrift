@@ -14,3 +14,6 @@ func _ready() -> void:
 			if sample > 0.25:
 				$Asteroids.set_cell(Vector2i(x,y),0,Vector2i(randi_range(0,2),0))
 				$Asteroids/AsteroidWalls.set_cell(Vector2i(x,y),0,Vector2i(randi_range(0,2),1))
+
+func _process(_delta:float) -> void:
+	$HUD/Pinpointer.rotation = $Player.position.angle_to_point($Gary.position)+PI/2.0
