@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b51ot8x16g6mv"]
+[gd_scene load_steps=20 format=3 uid="uid://b51ot8x16g6mv"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_xe4wd"]
 [ext_resource type="AudioStream" uid="uid://cphclaw3fmfyh" path="res://halloweeninspace.wav" id="2_y3bbg"]
@@ -7,6 +7,29 @@
 [ext_resource type="Texture2D" uid="uid://dktgcfvfk8epo" path="res://scenes/starfield_1.png" id="4_bc4qc"]
 [ext_resource type="Texture2D" uid="uid://rjd7r0os31v4" path="res://scenes/starfield_2.png" id="5_aostp"]
 [ext_resource type="Texture2D" uid="uid://bqyroff2qej1q" path="res://scenes/starfield_3.png" id="6_ekrvk"]
+[ext_resource type="Texture2D" uid="uid://dwir0agf11kgw" path="res://entities/play.png" id="8_du1da"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8q8gy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tdcx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3437"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcniq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fy1jo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ngk1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psubl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ojyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxwvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bibel"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50kpj"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xe4wd")
@@ -21,12 +44,21 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="Main Menu"]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 400.0
-offset_right = 658.0
-offset_bottom = 496.0
-theme_override_font_sizes/font_size = 32
-text = "PLAY"
+offset_left = 516.0
+offset_top = 413.0
+offset_right = 645.0
+offset_bottom = 477.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8q8gy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tdcx6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_r3437")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tcniq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fy1jo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ngk1t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_psubl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7ojyw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oxwvo")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bibel")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_50kpj")
 
 [node name="TextureRect" type="TextureRect" parent="Main Menu"]
 texture_filter = 1
@@ -104,5 +136,9 @@ follow_viewport = false
 [node name="Sprite2D" type="Sprite2D" parent="Main Menu/CanvasLayer/Stars3"]
 position = Vector2(1024, 367)
 texture = ExtResource("6_ekrvk")
+
+[node name="Play" type="Sprite2D" parent="."]
+position = Vector2(580, 445)
+texture = ExtResource("8_du1da")
 
 [connection signal="pressed" from="Main Menu/Button" to="." method="_on_button_pressed"]
