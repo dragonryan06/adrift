@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmff683kd5rcl"]
+[gd_scene load_steps=13 format=3 uid="uid://dmff683kd5rcl"]
 
 [ext_resource type="Script" path="res://systems/player.gd" id="1_sknty"]
 [ext_resource type="Texture2D" uid="uid://m8kcitn3npig" path="res://entities/player.png" id="2_avont"]
@@ -32,6 +32,9 @@ scale_max = 1.5
 scale_curve = SubResource("CurveTexture_ofnpp")
 turbulence_noise_strength = 3.74
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_73qlh"]
+radius = 75.326
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_sknty")
@@ -47,6 +50,7 @@ shape = SubResource("RectangleShape2D_utapu")
 
 [node name="Camera2D" type="Camera2D" parent="Pivot"]
 ignore_rotation = false
+zoom = Vector2(0.7, 0.7)
 
 [node name="GridDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
@@ -85,3 +89,8 @@ texture = ExtResource("5_owdch")
 lifetime = 16.0
 preprocess = 100.0
 visibility_rect = Rect2(-512, -512, 1024, 1024)
+
+[node name="WallDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
+shape = SubResource("CircleShape2D_73qlh")
