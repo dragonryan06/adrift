@@ -24,3 +24,15 @@ func _physics_process(delta:float) -> void:
 	move_and_slide()
 	
 	parent_grid = $GridDetector.get_collider()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && event.is_pressed():
+		var coor = get_parent().get_node("Asteroids").local_to_map(get_global_mouse_position()+abs(get_parent().get_node("Asteroids").position))
+		var id = get_parent().get_node("Asteroids/Damage").get_cell_source_id(coor)
+		if get_parent().get_node("Asteroids/AsteroidWalls").get_cell_source_id(coor) != -1:
+			if id < 1:
+				get_parent().get_node("Asteroids/Damage").set_cell(coor, id+1, Vector2i(0,0))
+			else:
+				get_parent().get_node("Asteroids/AsteroidWalls").set_cell(coor, -1)
+				get_parent().get_node("Asteroids/Damage").set_cell(coor, -1)
+				
