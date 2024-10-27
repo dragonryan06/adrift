@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rcdv6lft64hb"]
+[gd_scene load_steps=14 format=3 uid="uid://rcdv6lft64hb"]
 
 [ext_resource type="Texture2D" uid="uid://cu115ejfasq2k" path="res://icon.svg" id="1_4vtlf"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_mp0da"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dmff683kd5rcl" path="res://entities/player.tscn" id="2_a0nbi"]
 [ext_resource type="TileSet" uid="uid://dmy1e8ecuv35g" path="res://entities/asteroidtileset.tres" id="2_m7jwa"]
 [ext_resource type="Texture2D" uid="uid://bqyroff2qej1q" path="res://scenes/starfield_3.png" id="3_0ps5e"]
+[ext_resource type="Texture2D" uid="uid://i00jwbtqh4vb" path="res://entities/crack1.png" id="3_4mcol"]
+[ext_resource type="Texture2D" uid="uid://db3lntvk0cudw" path="res://entities/crack2.png" id="4_741if"]
 
 [sub_resource type="Environment" id="Environment_kbo07"]
 background_mode = 3
@@ -14,6 +16,21 @@ tonemap_mode = 2
 tonemap_white = 5.0
 adjustment_enabled = true
 adjustment_saturation = 0.75
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qwaph"]
+texture = ExtResource("3_4mcol")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwcvf"]
+texture = ExtResource("4_741if")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_34nqx"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_qwaph")
+sources/1 = SubResource("TileSetAtlasSource_uwcvf")
 
 [node name="World" type="Node"]
 script = ExtResource("1_mp0da")
@@ -27,6 +44,9 @@ tile_set = ExtResource("2_m7jwa")
 
 [node name="AsteroidWalls" type="TileMapLayer" parent="Asteroids"]
 tile_set = ExtResource("2_m7jwa")
+
+[node name="Damage" type="TileMapLayer" parent="Asteroids"]
+tile_set = SubResource("TileSet_34nqx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
