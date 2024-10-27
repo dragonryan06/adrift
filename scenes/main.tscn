@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b51ot8x16g6mv"]
+[gd_scene load_steps=8 format=3 uid="uid://b51ot8x16g6mv"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_xe4wd"]
 [ext_resource type="AudioStream" uid="uid://cphclaw3fmfyh" path="res://halloweeninspace.wav" id="2_y3bbg"]
+[ext_resource type="Script" path="res://scenes/label.gd" id="3_otrb4"]
 [ext_resource type="Texture2D" uid="uid://cm2pwi0mniw4" path="res://scenes/adrift_title.png" id="3_vdwlu"]
 [ext_resource type="Texture2D" uid="uid://dktgcfvfk8epo" path="res://scenes/starfield_1.png" id="4_bc4qc"]
 [ext_resource type="Texture2D" uid="uid://rjd7r0os31v4" path="res://scenes/starfield_2.png" id="5_aostp"]
@@ -44,9 +45,11 @@ offset_right = 1052.0
 offset_bottom = 281.0
 rotation = -0.432392
 theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.409142, 0.332046, 0.0782411, 1)
 theme_override_font_sizes/font_size = 12
 text = "Ian didn't mean to make this logo look like what it does look like!"
 horizontal_alignment = 1
+script = ExtResource("3_otrb4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Main Menu"]
 layout_mode = 1
