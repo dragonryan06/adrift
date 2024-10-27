@@ -13,11 +13,11 @@ func _physics_process(delta:float) -> void:
 	
 	var movement = Vector2(Input.get_axis("move_left","move_right"), Input.get_axis("move_up","move_down"))
 	
-	if (is_instance_valid(parent_grid) or len($WallDetector.get_overlapping_bodies())>1) and movement.x:
+	if (is_instance_valid(parent_grid) or len($WallDetector.get_overlapping_bodies())>1 or position == Vector2(0,0)) and movement.x:
 		velocity.x = movement.x*MOVE_SPEED
 	elif is_instance_valid(parent_grid):
 		velocity.x = move_toward(velocity.x, 0, MOVE_SPEED)
-	if (is_instance_valid(parent_grid) or len($WallDetector.get_overlapping_bodies())>1) and movement.y:
+	if (is_instance_valid(parent_grid) or len($WallDetector.get_overlapping_bodies())>1 or position == Vector2(0,0)) and movement.y:
 		velocity.y = movement.y*MOVE_SPEED
 	elif is_instance_valid(parent_grid):
 		velocity.y = move_toward(velocity.y, 0, MOVE_SPEED)
