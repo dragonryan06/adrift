@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b51ot8x16g6mv"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_xe4wd"]
+[ext_resource type="AudioStream" uid="uid://cphclaw3fmfyh" path="res://halloweeninspace.wav" id="2_y3bbg"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_xe4wd")
+
+[node name="Main Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main Menu"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 80.0
+offset_right = 764.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 64
+text = "MAIN MENU"
+
+[node name="Button" type="Button" parent="Main Menu"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 400.0
+offset_right = 658.0
+offset_bottom = 496.0
+theme_override_font_sizes/font_size = 64
+text = "PLAY"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu"]
+stream = ExtResource("2_y3bbg")
+volume_db = -12.0
+autoplay = true
+
+[connection signal="pressed" from="Main Menu/Button" to="." method="_on_button_pressed"]
