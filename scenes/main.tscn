@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b51ot8x16g6mv"]
+[gd_scene load_steps=7 format=3 uid="uid://b51ot8x16g6mv"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_xe4wd"]
 [ext_resource type="AudioStream" uid="uid://cphclaw3fmfyh" path="res://halloweeninspace.wav" id="2_y3bbg"]
+[ext_resource type="Texture2D" uid="uid://cm2pwi0mniw4" path="res://scenes/adrift_title.png" id="3_vdwlu"]
+[ext_resource type="Texture2D" uid="uid://dktgcfvfk8epo" path="res://scenes/starfield_1.png" id="4_bc4qc"]
+[ext_resource type="Texture2D" uid="uid://rjd7r0os31v4" path="res://scenes/starfield_2.png" id="5_aostp"]
+[ext_resource type="Texture2D" uid="uid://bqyroff2qej1q" path="res://scenes/starfield_3.png" id="6_ekrvk"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xe4wd")
@@ -14,27 +18,88 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Main Menu"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 80.0
-offset_right = 764.0
-offset_bottom = 168.0
-theme_override_font_sizes/font_size = 64
-text = "MAIN MENU"
-
 [node name="Button" type="Button" parent="Main Menu"]
 layout_mode = 0
 offset_left = 496.0
 offset_top = 400.0
 offset_right = 658.0
 offset_bottom = 496.0
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "PLAY"
+
+[node name="TextureRect" type="TextureRect" parent="Main Menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 306.0
+offset_top = 3.0
+offset_right = 868.0
+offset_bottom = 284.0
+texture = ExtResource("3_vdwlu")
+
+[node name="Label" type="Label" parent="Main Menu"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 258.0
+offset_right = 1052.0
+offset_bottom = 281.0
+rotation = -0.432392
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Ian didn't mean to make this logo look like what it does look like!"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 511.0
+offset_right = 265.0
+offset_bottom = 654.0
+text = "Credits:
+Ryan,
+Sammi,
+Ian,
+Stephen Hillenburg,
+(ugh and i guess Nickelodeon too)"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu"]
 stream = ExtResource("2_y3bbg")
 volume_db = -12.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Main Menu"]
+layer = -1
+
+[node name="Stars1" type="Parallax2D" parent="Main Menu/CanvasLayer"]
+scroll_scale = Vector2(0.05, 0.05)
+repeat_size = Vector2(2048, 1024)
+autoscroll = Vector2(20, 20)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Main Menu/CanvasLayer/Stars1"]
+position = Vector2(1024, 367)
+texture = ExtResource("4_bc4qc")
+
+[node name="Stars2" type="Parallax2D" parent="Main Menu/CanvasLayer"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(2048, 1024)
+autoscroll = Vector2(40, 40)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Main Menu/CanvasLayer/Stars2"]
+position = Vector2(1024, 367)
+texture = ExtResource("5_aostp")
+
+[node name="Stars3" type="Parallax2D" parent="Main Menu/CanvasLayer"]
+scroll_scale = Vector2(0.15, 0.15)
+repeat_size = Vector2(2048, 1024)
+autoscroll = Vector2(60, 60)
+repeat_times = 3
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Main Menu/CanvasLayer/Stars3"]
+position = Vector2(1024, 367)
+texture = ExtResource("6_ekrvk")
 
 [connection signal="pressed" from="Main Menu/Button" to="." method="_on_button_pressed"]
